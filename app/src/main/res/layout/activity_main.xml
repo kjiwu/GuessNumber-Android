@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.MainActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tooBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <android.support.v4.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="32dp"/>
+
+            <kjiwu.com.guessnumber.customs.NumberListView
+                android:id="@+id/numberListView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"/>
+
+            <android.support.v4.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="32dp"/>
+
+            <kjiwu.com.guessnumber.customs.KeyboardView
+                android:id="@+id/keyboard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp">
+
+            </kjiwu.com.guessnumber.customs.KeyboardView>
+
+            <android.support.v4.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/button_back"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/keyboard_button_background"
+                    android:text="@string/keyboard_back"
+                    android:textColor="@color/keyboardTextColor"
+                    android:textSize="@dimen/keyboard_text_size"/>
+
+                <Button
+                    android:id="@+id/button_enter"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/keyboard_button_background"
+                    android:text="@string/keyboard_enter"
+                    android:textColor="@color/keyboardTextColor"
+                    android:textSize="@dimen/keyboard_text_size"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/drawerlayout_left_width"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="left"
+            android:background="@color/colorAccent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/history_guess_result_title"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="24dp"
+                android:textSize="@dimen/keyboard_text_size"/>
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/listview_guessHistory">
+
+            </ListView>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.DrawerLayout>
+
+</LinearLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="NumberTextView">
+        <attr name="cursorStroke" format="dimension"/>
+        <attr name="cursorColor" format="color|reference"/>
+        <attr name="number" format="string|reference"/>
+        <attr name="numberSize" format="dimension"/>
+        <attr name="numberColor" format="color|reference"/>
+        <attr name="isNeedBlink" format="boolean|reference"/>
+        <attr name="defaultBackground" format="reference"/>
+        <attr name="blinkDuration" format="integer"/>
+    </declare-styleable>
+</resources>

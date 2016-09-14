@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:number_textview="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal">
+
+    <kjiwu.com.guessnumber.customs.NumberTextView
+        android:id="@+id/numberTextView1"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="96dp"
+        number_textview:cursorStroke="2dp"
+        number_textview:isNeedBlink="true"
+        number_textview:numberColor="@color/colorAccent"
+        number_textview:numberSize="@dimen/number_text_size"
+        number_textview:cursorColor="@color/colorAccent"/>
+
+    <android.support.v4.widget.Space
+        android:layout_width="10dp"
+        android:layout_height="match_parent"/>
+
+    <kjiwu.com.guessnumber.customs.NumberTextView
+        android:id="@+id/numberTextView2"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="96dp"
+        number_textview:cursorStroke="2dp"
+        number_textview:isNeedBlink="false"
+        number_textview:numberColor="@color/colorAccent"
+        number_textview:numberSize="@dimen/number_text_size"
+        number_textview:cursorColor="@color/colorAccent"/>
+
+    <android.support.v4.widget.Space
+        android:layout_width="10dp"
+        android:layout_height="match_parent"/>
+
+    <kjiwu.com.guessnumber.customs.NumberTextView
+        android:id="@+id/numberTextView3"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="96dp"
+        number_textview:cursorStroke="2dp"
+        number_textview:isNeedBlink="false"
+        number_textview:numberColor="@color/colorAccent"
+        number_textview:numberSize="@dimen/number_text_size"
+        number_textview:cursorColor="@color/colorAccent"/>
+
+    <android.support.v4.widget.Space
+        android:layout_width="10dp"
+        android:layout_height="match_parent"/>
+
+    <kjiwu.com.guessnumber.customs.NumberTextView
+        android:id="@+id/numberTextView4"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="96dp"
+        number_textview:cursorStroke="2dp"
+        number_textview:isNeedBlink="false"
+        number_textview:numberColor="@color/colorAccent"
+        number_textview:numberSize="@dimen/number_text_size"
+        number_textview:cursorColor="@color/colorAccent"/>
+</LinearLayout>

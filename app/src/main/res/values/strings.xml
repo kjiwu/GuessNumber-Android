@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">猜数字</string>
+
+    <string name="keyboard_back">后退</string>
+    <string name="keyboard_enter">确认</string>
+    <string name="history_guess_result_title">猜数结果</string>
+</resources>
