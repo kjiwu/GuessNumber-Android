@@ -1,9 +1,12 @@
 package kjiwu.com.guessnumber.activities;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -11,8 +14,12 @@ import android.widget.ListView;
 import kjiwu.com.guessnumber.R;
 import kjiwu.com.guessnumber.customs.KeyboardView;
 import kjiwu.com.guessnumber.customs.NumberListView;
+import kjiwu.com.guessnumber.models.GameManager;
+import kjiwu.com.guessnumber.viewModels.MainActivityViewModel;
 
-public class MainActivity extends KJIBaseActivity {
+public class MainActivity extends KJIBaseActivity implements GameManager.GameGuessResultListener {
+
+    private final static String MainActivity_Tag = MainActivity.class.getName();
 
     private KeyboardView.OnKeyboardPressedListener mAddClickListener =
             new KeyboardView.OnKeyboardPressedListener() {
@@ -38,6 +45,10 @@ public class MainActivity extends KJIBaseActivity {
                     mKeyboardView.clearKeyState(number);
                     break;
                 case R.id.button_enter:
+                    String input_number = mNumberListView.getInputNumber();
+                    mainActivityViewModel.testGuessNumber(input_number);
+                    mKeyboardView.clear();
+                    mNumberListView.reset();
                     break;
             }
         }
@@ -48,7 +59,7 @@ public class MainActivity extends KJIBaseActivity {
     private ListView mGuessHistoryListView;
 
 
-
+    private MainActivityViewModel mainActivityViewModel;
 
 
     @Override
@@ -56,6 +67,11 @@ public class MainActivity extends KJIBaseActivity {
         super.onCreate(savedInstanceState);
 
         initViews();
+
+        mainActivityViewModel = new MainActivityViewModel(this);
+        mainActivityViewModel.generateGuessNumber();
+        mGuessHistoryListView.setAdapter(mainActivityViewModel.getGuessResultAdapter());
+        mainActivityViewModel.setGameGuessResultListener(this);
     }
 
     @Override
@@ -66,6 +82,31 @@ public class MainActivity extends KJIBaseActivity {
     @Override
     protected void initWindowParams() {
         super.initWindowParams();
+    }
+
+    @Override
+    public void onWin() {
+        Log.d(MainActivity_Tag, "onWin");
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Win");
+        builder.setMessage("You win!");
+        builder.setCancelable(true);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                mainActivityViewModel.clearHistory();
+                mainActivityViewModel.generateGuessNumber();
+            }
+        });
+        builder.create().show();
+    }
+
+    @Override
+    public void onLose() {
+        Log.d(MainActivity_Tag, "onLose");
+        mainActivityViewModel.clearHistory();
+        mainActivityViewModel.generateGuessNumber();
     }
 
 

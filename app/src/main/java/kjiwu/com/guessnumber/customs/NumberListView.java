@@ -81,4 +81,15 @@ public class NumberListView extends LinearLayout {
 
         mNumberTextViews.get(0).setNeedBlink(true);
     }
+
+    public String getInputNumber() {
+        String result = "";
+        for (int i = 0; i < mNumberTextViews.size(); i++) {
+            NumberTextView textView = mNumberTextViews.get(i);
+            if(textView.haveNumber()) {
+                result += textView.getNumber();
+            }
+        }
+        return result.trim();
+    }
 }

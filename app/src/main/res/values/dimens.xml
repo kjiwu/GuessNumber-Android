@@ -6,4 +6,7 @@
     <dimen name="number_text_size">24sp</dimen>
     <dimen name="keyboard_text_size">20sp</dimen>
     <dimen name="drawerlayout_left_width">240dp</dimen>
+
+    <dimen name="guess_history_number_size">20sp</dimen>
+    <dimen name="guess_history_result_size">24sp</dimen>
 </resources>

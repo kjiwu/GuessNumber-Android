@@ -95,4 +95,13 @@ public class KeyboardView extends TableLayout implements View.OnClickListener {
         }
     }
 
+    public void clear() {
+        for (Button button : mKeys) {
+            if(!button.isEnabled()) {
+                button.setEnabled(true);
+            }
+        }
+        mCurrentPressedCount = 0;
+    }
+
 }
